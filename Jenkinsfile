@@ -1,26 +1,9 @@
 pipeline {
-    agent any
-    environment {
-        GH_TOKEN  = credentials('some-id')
-    }
+    agent { docker { image 'node:20.17.0-alpine3.20' } }
     stages {
-        stage('Test') {
+        stage('build') {
             steps {
-                sh '''
-                # Configure your test steps here (checkout, npm install, tests etc)
-                npm install
-                '''
-            }
-        }
-        stage('Release') {
-            tools {
-                nodejs "node LTS"
-            }
-            steps {
-                sh '''
-                # Run optional required steps before releasing
-                npx semantic-release
-                '''
+                sh 'node --version'
             }
         }
     }
