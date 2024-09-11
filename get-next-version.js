@@ -8,7 +8,8 @@ const st = new ObjectWritableMock();
         branches: ['master', 'origin/master'],
         plugins: [
             '@semantic-release/commit-analyzer'
-        ]
+        ],
+        dryRun: true
     });
 
     if (result) {
