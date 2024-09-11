@@ -9,7 +9,8 @@ const st = new ObjectWritableMock();
         plugins: [
             '@semantic-release/commit-analyzer'
         ],
-        dryRun: true
+        dryRun: true,
+        ci: false,
     });
 
     if (result) {
