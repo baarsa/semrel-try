@@ -5,7 +5,7 @@ const st = new ObjectWritableMock();
 (async () => {
     const semanticRelease = await import('semantic-release');
     const result = await semanticRelease.default({
-        branches: ['master'],
+        branches: ['master', 'origin/master'],
         plugins: [
             '@semantic-release/commit-analyzer'
         ]
