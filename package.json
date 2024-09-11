@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "get-next-version": "node get-next-version.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "semantic-release": "^24.0.0"
+    "semantic-release": "^24.0.0",
+    "stream-mock": "2.0.5"
   }
 }
