@@ -10,6 +10,7 @@ const st = new ObjectWritableMock();
             '@semantic-release/commit-analyzer'
         ],
         dryRun: true,
+        tagFormat: '${version}'
     }, { stdout: st });
 
     if (result) {
