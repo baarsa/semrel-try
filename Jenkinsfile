@@ -7,17 +7,14 @@ pipeline {
             }
         }
         stage('Tagging') {
+            when { branch 'master' }
             steps {
-                withCredentials([gitUsernamePassword(credentialsId: 'gh-cr-id', gitToolName: 'git-tool')]) {
-                  sh 'git fetch --all'
-                  script {
-                    NEXT_VERSION = sh (
-                      script: 'npm run get-next-version',
-                      returnStdout: true
-                    )
-                    echo "Next version: ${NEXT_VERSION}"
-                  }
-               }
+                sh '''
+                  git fetch --all
+                  nv=$(npm run get-next-version --silent)
+                  git tag $nv
+                  git push --tags
+                '''
             }
         }
     }
